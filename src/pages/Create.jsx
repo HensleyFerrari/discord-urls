@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import consts from '../consts'
 import axios from 'axios'
 import { connect } from 'react-redux'

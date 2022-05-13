@@ -3,7 +3,7 @@ import { toast } from 'react-toastify'
 
 function Card({ song }) {
 
-    const { nome, author, anime, tag, image, url, spotify, _id, createdBy } = song
+    const { nome, author, anime, tag, image, url } = song
 
     return (
         <div className='shadow-md flex rounded-md bg-purple-600 text-white overflow-hidden'>
