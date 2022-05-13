@@ -41,7 +41,7 @@ function Create({ auth }) {
             <div className='container mx-auto mt-5'>
                 <div className="flex flex-col content-center m-auto gap-5 w-72">
                     <div className='flex flex-col gap-2'>
-                        <label htmlFor="nome">Nome</label>
+                        <label htmlFor="nome">Nome da música</label>
                         <input type="text" onChange={changeForm} name='nome' className='p-1 outline outline-offset-1 outline-purple-500 rounded-md' required />
                     </div>
                     <div className='flex flex-col gap-2'>
@@ -49,11 +49,11 @@ function Create({ auth }) {
                         <input type="text" onChange={changeForm} name='author' className='p-1 outline outline-offset-1 outline-purple-500 rounded-md' required />
                     </div>
                     <div className='flex flex-col gap-2'>
-                        <label htmlFor="nome">Anime</label>
+                        <label htmlFor="nome">Anime/Álbum</label>
                         <input type="text" onChange={changeForm} name='anime' className='p-1 outline outline-offset-1 outline-purple-500 rounded-md' required />
                     </div>
                     <div className='flex flex-col gap-2'>
-                        <label htmlFor="nome">Tag</label>
+                        <label htmlFor="nome">Tag <span className='text-xs text-gray-500'>(Opening, Ending, Original, Insert Song)</span></label>
                         <input type="text" onChange={changeForm} name='tag' className='p-1 outline outline-offset-1 outline-purple-500 rounded-md' required />
                     </div>
                     <div className='flex flex-col gap-2'>
@@ -61,10 +61,10 @@ function Create({ auth }) {
                         <input type="text" onChange={changeForm} name='url' className='p-1 outline outline-offset-1 outline-purple-500 rounded-md' required />
                     </div>
                     <div className='flex flex-col gap-2'>
-                        <label htmlFor="nome">Link da capa</label>
+                        <label htmlFor="nome">Link da capa <span className='text-xs text-gray-500'>(My Anime List ou Anilist)</span></label>
                         <input type="text" onChange={changeForm} name='image' className='p-1 outline outline-offset-1 outline-purple-500 rounded-md' required />
                     </div>
-                    <button onClick={() => handleSubmit()} className='px-4 py-2 rounded-md bg-green-600 text-white'>Cadastrar música</button>
+                    <button onClick={() => handleSubmit()} className='px-4 py-2 rounded-md bg-gradient-to-r from-violet-500 to-fuchsia-500 font-bold text-xl text-white'>Cadastrar música</button>
                 </div>
             </div>
         </>
