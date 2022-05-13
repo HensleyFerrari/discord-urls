@@ -7,7 +7,7 @@ function Card({ song }) {
 
     return (
         <div className='shadow-md flex rounded-md bg-purple-600 text-white overflow-hidden'>
-            <img src={image} alt="" className='max-h-52 rounded-l-md' />
+            <img src={image} alt="" className='max-h-52 rounded-l-md max-w-[138px]' />
             <div className='flex flex-col gap-2 w-full text-center'>
                 <span className='font-bold mt-2'>{nome}</span>
                 <span className='text-sm'>{author}</span>
