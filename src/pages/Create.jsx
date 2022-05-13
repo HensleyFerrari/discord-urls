@@ -11,7 +11,7 @@ import Menu from '../common/template/Menu'
 function Create({ auth }) {
     const [form, setForm] = useState({
         nome: '', author: '', anime: '', tag: '', url: '', image: '', createdBy: {
-            id: auth.user.id,
+            id: auth.user._id,
             name: auth.user.name,
         }, token: auth.user.token
     })

@@ -10,7 +10,7 @@ function Menu({ logout }) {
     return (
         <div className='shadow-md p-5'>
             <div className="flex justify-around">
-                <span className="font-bold text-2xl text-purple-600">Dr. Song<span className='text-xs text-purple-300'> ALFA</span> </span>
+                <span className="font-bold text-2xl text-purple-600">Dr. Song<span className='text-xs text-purple-300'> ALPHA</span> </span>
                 <div className='flex gap-4 self-center'>
                     <Link to='/home' className='text-purple-700 font-semibold'>Home</Link>
                     {/* <Link to='/profile' className='text-purple-700 font-semibold'>Profile</Link> */}
