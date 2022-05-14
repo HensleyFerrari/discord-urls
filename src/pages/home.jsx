@@ -13,14 +13,29 @@ function Home({ auth, validateToken }) {
   const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
-    axios.get(`${consts.API_URL}/info`, {
-      headers: {
-        Authorization: auth.user.token,
-      }
-    }).then(resp => {
-      setInfo(resp.data)
-    })
+    getInfo()
   }, [])
+
+  const getInfo = async () => {
+    const date = Date.now() / 1000
+    const checkDate = parseInt(localStorage.getItem('date'))
+    const check = localStorage.getItem('info')
+    const calc = date - checkDate
+
+    if (check && calc < 180) {
+      setInfo(JSON.parse(check))
+    } else {
+      localStorage.setItem('date', Date.now() / 1000)
+      axios.get(`${consts.API_URL}/info`, {
+        headers: {
+          Authorization: auth.user.token,
+        }
+      }).then(resp => {
+        setInfo(resp.data)
+        localStorage.setItem('info', JSON.stringify(resp.data))
+      })
+    }
+  }
 
   return (
     <>

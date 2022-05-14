@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { validateToken } from './../auth/authActions'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router'
 
 import Menu from '../common/template/Menu'
 
@@ -30,6 +31,7 @@ function Create({ auth }) {
             }
         }).then(() => {
             toast.success('Música cadastrada com sucesso!')
+            localStorage.removeItem('info')
         }).catch(() => {
             toast.error('Erro ao cadastrar música!')
         })
