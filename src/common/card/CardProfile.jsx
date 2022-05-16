@@ -8,7 +8,7 @@ function Card({ song, name }) {
 
     return (
         <div className='shadow-lg flex rounded-md bg-purple-600 text-white overflow-hidden min-h-[207px]' data-aos="fade-up" >
-            <img src={image} alt="" className='max-h-52 rounded-l-md max-w-[138px]' loading='lazy' />
+            <img src={image} alt="" className='bg-cover max-h-52 rounded-l-md max-w-[138px]' loading='lazy' />
             <div className='flex flex-col gap-2 w-full text-center'>
                 <span className='font-bold text-lg mt-2 pl-1 pr-2'>{nome}</span>
                 <span className='text-sm'>{author}</span>
@@ -24,7 +24,7 @@ function Card({ song, name }) {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 self-center" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                         </svg>
-                        {/* <span className='self-center block sm:hidden md:hidden 2xl:block'>Editar</span> */}
+                        {/* <span className='self-center'>Editar</span> */}
                     </Link>
                 </div>
             </div>

@@ -8,6 +8,7 @@ import AuthOrApp from '../authOrApp'
 import Profile from '../pages/profile'
 import Home from '../pages/home'
 import Create from '../pages/Create'
+import InfoEdit from '../pages/InfoEdit'
 
 function Router() {
     return (
@@ -16,6 +17,7 @@ function Router() {
             <Route path="/home" element={<PrivateRoutes component={<Home />} />} />
             <Route path="/profile" element={<PrivateRoutes component={<Profile />} />} />
             <Route path="/create" element={<PrivateRoutes component={<Create />} />} />
+            <Route path="/:id/edit" element={<PrivateRoutes component={<InfoEdit />} />} />
         </Routes>
     )
 }

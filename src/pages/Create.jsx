@@ -37,9 +37,9 @@ function Create({ auth }) {
     return (
         <div className="dark:bg-zinc-800 min-h-[891px]">
             <div className='container mx-auto pt-5'>
-                <div className="flex flex-col content-center m-auto gap-5 w-72">
+                <div className="flex flex-col content-center m-auto gap-5 w-96">
                     <div className='flex flex-col gap-2'>
-                        <label htmlFor="nome" className='dark:text-white'>Nome da música</label>
+                        <label htmlFor="nome" className='dark:text-white'>Nome da música </label>
                         <input type="text" onChange={changeForm} name='nome' className='p-1 outline outline-offset-1 outline-purple-500 rounded-md' required />
                     </div>
                     <div className='flex flex-col gap-2'>

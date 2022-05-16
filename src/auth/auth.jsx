@@ -34,7 +34,10 @@ function Auth(props) {
     return (
         <div className='flex bg-gradient-to-r from-violet-500 to-fuchsia-500 h-screen'>
             {/* <form onSubmit={ handleSubmit (v => onSubmit(v))}> */}
-            <div className='flex flex-col justify-center m-auto bg-white w-72 rounded-lg p-10'>
+            <div className='flex flex-col justify-center m-auto bg-white w-96 rounded-lg p-10'>
+                <div className=' text-center pt-2 p-5'>
+                    <span className='font-bold text-4xl text-purple-600'>Dr.Song</span>
+                </div>
                 <form className='flex flex-col gap-5 w-52 self-center' onSubmit={onSubmit}>
                     <input className={`${loginMode ? 'hidden' : ''} p-2 rounded-md`} name="name" type="input" placeholder="Nome" onChange={changeForm} />
                     <input className='p-2 rounded-md' name="email" type="email" placeholder="E-mail" onChange={changeForm} />
@@ -42,7 +45,7 @@ function Auth(props) {
                     <input className={`${loginMode ? 'hidden' : ''} p-2 rounded-md`} name="confirm_password" type="password" placeholder="Confirmar Senha" onChange={changeForm} />
                     <button type='submit' className='px-4 py-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-bold rounded-xl'>{loginMode ? 'Entrar' : 'Registrar'}</button>
                 </form>
-                <button onClick={() => changeMode()}>
+                <button onClick={() => changeMode()} className='p-5 pb-1'>
                     {loginMode ? 'Não possui usuário? Registre-se!' : 'Já possui usuário? Entre!'}
                 </button>
             </div>
