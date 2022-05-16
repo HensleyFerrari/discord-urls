@@ -36,10 +36,10 @@ function Auth(props) {
             {/* <form onSubmit={ handleSubmit (v => onSubmit(v))}> */}
             <div className='flex flex-col justify-center m-auto bg-white w-72 rounded-lg p-10'>
                 <form className='flex flex-col gap-5 w-52 self-center' onSubmit={onSubmit}>
-                    <input className={loginMode ? 'hidden' : ''} name="name" type="input" placeholder="Nome" onChange={changeForm} />
-                    <input name="email" type="email" placeholder="E-mail" onChange={changeForm} />
-                    <input name="password" type="password" placeholder="Senha" onChange={changeForm} />
-                    <input className={loginMode ? 'hidden' : ''} name="confirm_password" type="password" placeholder="Confirmar Senha" onChange={changeForm} />
+                    <input className={`${loginMode ? 'hidden' : ''} p-2 rounded-md`} name="name" type="input" placeholder="Nome" onChange={changeForm} />
+                    <input className='p-2 rounded-md' name="email" type="email" placeholder="E-mail" onChange={changeForm} />
+                    <input className='p-2 rounded-md' name="password" type="password" placeholder="Senha" onChange={changeForm} />
+                    <input className={`${loginMode ? 'hidden' : ''} p-2 rounded-md`} name="confirm_password" type="password" placeholder="Confirmar Senha" onChange={changeForm} />
                     <button type='submit' className='px-4 py-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-bold rounded-xl'>{loginMode ? 'Entrar' : 'Registrar'}</button>
                 </form>
                 <button onClick={() => changeMode()}>

@@ -4,6 +4,8 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { validateToken } from '../auth/authActions'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 import Card from '../common/card/Card'
 import Menu from '../common/template/Menu'
@@ -14,6 +16,7 @@ function Home({ auth, validateToken }) {
 
   useEffect(() => {
     getInfo()
+    Aos.init()
   }, [])
 
   const getInfo = async () => {
@@ -38,9 +41,8 @@ function Home({ auth, validateToken }) {
   }
 
   return (
-    <>
-      <Menu />
-      <div className='container mx-auto mt-5 mb-5'>
+    <div className='dark:bg-zinc-800 min-h-[891px]'>
+      <div className='container mx-auto pt-5 pb-5'>
         <div className="flex mb-5 gap-5 pl-5 pr-5 sm:p-0">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 self-center text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -68,7 +70,7 @@ function Home({ auth, validateToken }) {
           })}
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
