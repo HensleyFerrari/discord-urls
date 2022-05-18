@@ -52,8 +52,8 @@ function InfoEdit({ auth }) {
         const { name, value } = e.target
 
         setForm({ ...form, [name]: value })
-    }
 
+    }
 
     const handleSubmit = () => {
         axios.put(`${consts.API_URL}/info/${id}`, form, {
@@ -63,6 +63,7 @@ function InfoEdit({ auth }) {
         }).then(() => {
             toast.success('Música alterada com sucesso!')
             localStorage.removeItem('info')
+            navigate('/home')
         }).catch(() => {
             toast.error('Erro ao alterar música!')
         })

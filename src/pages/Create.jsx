@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import consts from '../consts'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { validateToken } from './../auth/authActions'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 function Create({ auth }) {
     const [form, setForm] = useState({
@@ -13,11 +14,45 @@ function Create({ auth }) {
             name: auth.user.name,
         }, token: auth.user.token
     })
+    const [info, setInfo] = useState([])
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        getInfo()
+    }, [])
+
+    useEffect(() => {
+        const arr = info.findIndex((info, index) => { return info.nome.toLowerCase() === form.nome.toLowerCase() })
+        if (arr !== -1) {
+            toast.warn('Essa música já foi cadastrada!')
+        }
+    }, [form])
 
     const changeForm = (e) => {
         const { name, value } = e.target
 
         setForm({ ...form, [name]: value })
+    }
+
+    const getInfo = async () => {
+        const date = Date.now() / 1000
+        const checkDate = parseInt(localStorage.getItem('date'))
+        const check = localStorage.getItem('info')
+        const calc = date - checkDate
+
+        if (check && calc < 180) {
+            setInfo(JSON.parse(check))
+        } else {
+            localStorage.setItem('date', Date.now() / 1000)
+            axios.get(`${consts.API_URL}/info`, {
+                headers: {
+                    Authorization: auth.user.token,
+                }
+            }).then(resp => {
+                setInfo(resp.data)
+                localStorage.setItem('info', JSON.stringify(resp.data))
+            })
+        }
     }
 
 
@@ -29,6 +64,7 @@ function Create({ auth }) {
         }).then(() => {
             toast.success('Música cadastrada com sucesso!')
             localStorage.removeItem('info')
+            navigate('/home')
         }).catch(() => {
             toast.error('Erro ao cadastrar música!')
         })
