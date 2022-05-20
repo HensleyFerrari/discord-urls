@@ -8,10 +8,12 @@ import Aos from 'aos'
 import 'aos/dist/aos.css'
 
 import Card from '../common/card/Card'
+import Loading from '../common/msg/Loading'
 
 function Home({ auth, validateToken }) {
   const [info, setInfo] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     getInfo()
@@ -25,6 +27,7 @@ function Home({ auth, validateToken }) {
     const calc = date - checkDate
 
     if (check && calc < 180) {
+      setLoading(true)
       setInfo(JSON.parse(check))
     } else {
       localStorage.setItem('date', Date.now() / 1000)
@@ -34,6 +37,7 @@ function Home({ auth, validateToken }) {
         }
       }).then(resp => {
         setInfo(resp.data)
+        setLoading(true)
         localStorage.setItem('info', JSON.stringify(resp.data))
       })
     }
@@ -41,7 +45,8 @@ function Home({ auth, validateToken }) {
 
   return (
     <div className='dark:bg-zinc-800 min-h-[891px]'>
-      <div className='container mx-auto pt-5 pb-5'>
+      {!loading && <Loading />}
+      <div className={`container mx-auto pt-5 pb-5 ${loading ? '' : 'hidden'}`}>
         <div className="flex mb-5 gap-5 pl-5 pr-5 sm:p-0">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 self-center text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -68,7 +73,7 @@ function Home({ auth, validateToken }) {
           }).map(info => {
             return (
               <>
-                <Card song={info} name={auth.user._id}/>
+                <Card song={info} name={auth.user._id} admin={auth.user.admin}/>
               </>
             )
           })}

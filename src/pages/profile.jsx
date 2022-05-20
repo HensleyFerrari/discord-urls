@@ -6,9 +6,11 @@ import { validateToken } from '../auth/authActions'
 
 import consts from '../consts'
 import CardProfile from '../common/card/CardProfile'
+import Loading from '../common/msg/Loading'
 
 function Profile({ auth }) {
   const [info, setInfo] = useState([])
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     getInfo()
@@ -21,6 +23,7 @@ function Profile({ auth }) {
     const calc = date - checkDate
 
     if (check && calc < 180) {
+      setLoading(true)
       setInfo(JSON.parse(check))
     } else {
       localStorage.setItem('date', Date.now() / 1000)
@@ -29,6 +32,7 @@ function Profile({ auth }) {
           Authorization: auth.user.token,
         }
       }).then(resp => {
+        setLoading(true)
         setInfo(resp.data)
         localStorage.setItem('info', JSON.stringify(resp.data))
       })
@@ -37,7 +41,8 @@ function Profile({ auth }) {
 
   return (
     <div className='dark:bg-zinc-800 min-h-[891px]'>
-      <div className='container mx-auto pt-5 pb-5'>
+      {!loading && <Loading />}
+      <div className={`container mx-auto pt-5 pb-5 ${loading ? '' : 'hidden'}`}>
         <div className="sm:pb-4 dark:text-white font-bold text-3xl p-5 sm:p-0">
           Olá, <span className='text-purple-600'>{auth.user.name}</span>
         </div>
@@ -49,7 +54,7 @@ function Profile({ auth }) {
           }).map(info => {
             return (
               <>
-                <CardProfile song={info} name={auth.user._id} />
+                <CardProfile song={info} name={auth.user._id} admin={auth.user.admin}/>
               </>
             )
           })}

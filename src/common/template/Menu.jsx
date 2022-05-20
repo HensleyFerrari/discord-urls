@@ -20,7 +20,7 @@ function Menu({ logout, auth, setTheme }) {
                 <div className="flex justify-around">
                     <span className="font-bold text-2xl text-purple-600 self-center">Dr. Song<span className='text-xs text-purple-300 dark:text-gray-100'> BETA</span> </span>
                     <div className='flex gap-4 self-center'>
-                        <Link to='/home' className='text-purple-600 font-bold'>
+                        <Link to='/home' className='text-purple-600 dark:text-white font-bold'>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 self-center" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                             </svg>
@@ -32,7 +32,7 @@ function Menu({ logout, auth, setTheme }) {
                         <div className="flex items-center justify-center">
                             <div className="relative inline-block">
                                 {/* Dropdown toggle button */}
-                                <button className="flex gap-1 relative z-10 p-2 text-purple-600 font-bold bg-white dark:bg-zinc-700 border border-transparent rounded-md  focus:border-purple-600 focus:ring-opacity-40 focus:ring-blue-300 focus:ring focus:outline-none" onClick={() => { setDropdown(!dropdown) }}>
+                                <button className="flex gap-1 relative z-10 p-2 dark:text-white text-purple-600 font-bold bg-white dark:bg-zinc-700 border border-transparent rounded-md" onClick={() => { setDropdown(!dropdown) }}>
                                     <span>{auth.user.name}</span>
                                     <svg className="w-5 h-5 text-gray-800 dark:text-white self-center" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                         <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />

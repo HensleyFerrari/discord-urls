@@ -2,7 +2,7 @@ import React from 'react'
 import { toast } from 'react-toastify'
 import { Link } from 'react-router-dom'
 
-function Card({ song, name, admin }) {
+function CardTest({ song, name, admin }) {
 
     const { nome, author, anime, tag, image, url, createdBy, _id } = song
 
@@ -32,4 +32,4 @@ function Card({ song, name, admin }) {
     )
 }
 
-export default Card
+export default CardTest

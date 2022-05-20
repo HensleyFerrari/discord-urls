@@ -10,10 +10,7 @@ import consts from '../consts'
 function InfoEdit({ auth }) {
     let navigate = useNavigate()
     const [form, setForm] = useState({
-        nome: '', author: '', anime: '', tag: '', url: '', image: '', createdBy: {
-            id: auth.user._id,
-            name: auth.user.name,
-        }, token: auth.user.token
+        nome: '', author: '', anime: '', tag: '', url: '', image: '', updatedBy: auth.user.nome ,token: auth.user.token
     })
     const [info, setInfo] = useState({})
     const { id } = useParams()
@@ -42,7 +39,7 @@ function InfoEdit({ auth }) {
     }, [info])
 
     const checkOwner = (data) => {
-        if (auth.user._id !== data.createdBy.id) {
+        if (auth.user._id !== data.createdBy.id && !auth.user.admin) {
             toast.warning('Você não tem permissão para editar essa música!')
             navigate('/')
         }
@@ -72,16 +69,7 @@ function InfoEdit({ auth }) {
     return (
         <div className="dark:bg-zinc-800 min-h-[891px]">
             <div className='container mx-auto pt-5'>
-                <div className="grid grid-cols-2 justify-center gap-5">
-                    <div className='sm:flex gap-5 m-auto hidden rounded-md'>
-                        <img src={form.image} className=' self-center max-w-[350px] rounded-md shadow-md' />
-                        {/* <div className="flex flex-col justify-center  text-center">
-                            <span className='text-purple-600 font-bold self-center text-xl'>{info.nome}</span>
-                            <span className='text-purple-600 font-bold self-center text-xl'>{info.author}</span>
-                            <span className='text-purple-600 font-bold self-center text-xl'>{info.anime}</span>
-                            <span className='text-purple-600 font-bold self-center text-xl'>{info.tag}</span>
-                        </div> */}
-                    </div>
+                <div className="flex flex-col justify-center gap-5">
                     <div className="grid grid-rows justify-items-center gap-5 text-center">
                         <div className='flex flex-col gap-2 min-w-[402px]'>
                             <label htmlFor="nome" className='dark:text-white'>Nome da música</label>
