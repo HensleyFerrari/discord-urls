@@ -73,7 +73,7 @@ function Home({ auth, validateToken }) {
           }).map(info => {
             return (
               <>
-                <Card song={info} name={auth.user._id} admin={auth.user.admin}/>
+                <Card song={info} name={auth.user._id} admin={auth.user.admin} />
               </>
             )
           })}

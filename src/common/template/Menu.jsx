@@ -40,7 +40,12 @@ function Menu({ logout, auth, setTheme }) {
                                 </button>
                                 {/* Dropdown menu */}
                                 <div className={`absolute right-0 z-20 w-48 py-2 mt-2 bg-white dark:bg-zinc-900 rounded-md shadow-xl ${dropdown ? '' : 'hidden'} `} onMouseLeave={() => setDropdown(false)}>
-                                    <ThemeButton setTheme={setTheme} setDropdown={setDropdown} />
+                                    <Link to='/' onClick={() => { setDropdown(false) }} className="dark:text-white dark:hover:bg-zinc-600 px-4 py-3 text-sm  capitalize transition-colors duration-200 transform hover:bg-gray-100 flex gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 self-center" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                        </svg>
+                                        <span >Página Inicial</span>
+                                    </Link>
                                     <Link to='/create' onClick={() => { setDropdown(false) }} className="dark:text-white dark:hover:bg-zinc-600 px-4 py-3 text-sm  capitalize transition-colors duration-200 transform hover:bg-gray-100 flex gap-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 self-center dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
@@ -51,6 +56,14 @@ function Menu({ logout, auth, setTheme }) {
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                         </svg><span >Perfil</span>
                                     </Link>
+                                    {auth.user.admin && <Link to='/admin/home' onClick={() => { setDropdown(false) }} className="dark:text-white dark:hover:bg-zinc-600 px-4 py-3 text-sm  capitalize transition-colors duration-200 transform hover:bg-gray-100 flex gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 self-center" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                        </svg>
+                                        <span >Admin Panel</span>
+                                    </Link>}
+                                    <ThemeButton setTheme={setTheme} setDropdown={setDropdown} />
+                                    <hr />
                                     <span className="px-4 py-3 text-sm text-red-500 hover:text-red-600 capitalize dark:hover:bg-zinc-600 transition-colors duration-200 transform hover:bg-gray-100 flex gap-1" onClick={() => {
                                         logout()
                                         setDropdown(false)
@@ -58,7 +71,8 @@ function Menu({ logout, auth, setTheme }) {
                                     }}>
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 self-center" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                                        </svg><span>Sign Out</span>
+                                        </svg>
+                                        <span>Sign Out</span>
                                     </span>
                                 </div>
                             </div>
