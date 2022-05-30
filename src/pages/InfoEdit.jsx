@@ -41,7 +41,7 @@ function InfoEdit({ auth }) {
     const checkOwner = (data) => {
         if (auth.user._id !== data.createdBy.id && !auth.user.admin) {
             toast.warning('Você não tem permissão para editar essa música!')
-            navigate('/')
+            navigate('/home')
         }
     }
 
@@ -60,7 +60,7 @@ function InfoEdit({ auth }) {
         }).then(() => {
             toast.success('Música alterada com sucesso!')
             localStorage.removeItem('info')
-            navigate('/home')
+            navigate('/search')
         }).catch(() => {
             toast.error('Erro ao alterar música!')
         })

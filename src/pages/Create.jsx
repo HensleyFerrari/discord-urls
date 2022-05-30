@@ -26,7 +26,7 @@ function Create({ auth }) {
         if (arr !== -1) {
             toast.warn('Essa música já foi cadastrada!')
         }
-    }, [form])
+    }, [form.nome])
 
     const changeForm = (e) => {
         const { name, value } = e.target
@@ -64,7 +64,7 @@ function Create({ auth }) {
         }).then(() => {
             toast.success('Música cadastrada com sucesso!')
             localStorage.removeItem('info')
-            navigate('/home')
+            navigate('/search')
         }).catch(() => {
             toast.error('Erro ao cadastrar música!')
         })

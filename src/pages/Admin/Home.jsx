@@ -24,26 +24,35 @@ function Home({ auth, validateToken }) {
     }, [])
 
     const getInfo = async () => {
-        const date = Date.now() / 1000
-        const checkDate = parseInt(localStorage.getItem('date'))
-        const check = localStorage.getItem('info')
-        const calc = date - checkDate
+        // const date = Date.now() / 1000
+        // const checkDate = parseInt(localStorage.getItem('date'))
+        // const check = localStorage.getItem('info')
+        // const calc = date - checkDate
 
-        if (check && calc < 180) {
+        // if (check && calc < 180) {
+        //     setLoading(true)
+        //     setInfo(JSON.parse(check))
+        // } else {
+        //     localStorage.setItem('date', Date.now() / 1000)
+        //     axios.get(`${consts.API_URL}/info`, {
+        //         headers: {
+        //             Authorization: auth.user.token,
+        //         }
+        //     }).then(resp => {
+        //         setInfo(resp.data)
+        //         setLoading(true)
+        //         localStorage.setItem('info', JSON.stringify(resp.data))
+        //     })
+        // }
+        axios.get(`${consts.API_URL}/info`, {
+            headers: {
+                Authorization: auth.user.token,
+            }
+        }).then(resp => {
+            setInfo(resp.data)
             setLoading(true)
-            setInfo(JSON.parse(check))
-        } else {
-            localStorage.setItem('date', Date.now() / 1000)
-            axios.get(`${consts.API_URL}/info`, {
-                headers: {
-                    Authorization: auth.user.token,
-                }
-            }).then(resp => {
-                setInfo(resp.data)
-                setLoading(true)
-                localStorage.setItem('info', JSON.stringify(resp.data))
-            })
-        }
+            // localStorage.setItem('info', JSON.stringify(resp.data))
+        })
     }
 
     const checkAdmin = () => {
