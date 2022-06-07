@@ -17,26 +17,14 @@ function Profile({ auth }) {
   }, [])
 
   const getInfo = async () => {
-    const date = Date.now() / 1000
-    const checkDate = parseInt(localStorage.getItem('date'))
-    const check = localStorage.getItem('info')
-    const calc = date - checkDate
-
-    if (check && calc < 180) {
+    axios.get(`${consts.API_URL}/info`, {
+      headers: {
+        Authorization: auth.user.token,
+      }
+    }).then(resp => {
       setLoading(true)
-      setInfo(JSON.parse(check))
-    } else {
-      localStorage.setItem('date', Date.now() / 1000)
-      axios.get(`${consts.API_URL}/info`, {
-        headers: {
-          Authorization: auth.user.token,
-        }
-      }).then(resp => {
-        setLoading(true)
-        setInfo(resp.data)
-        localStorage.setItem('info', JSON.stringify(resp.data))
-      })
-    }
+      setInfo(resp.data)
+    })
   }
 
   return (
@@ -54,7 +42,7 @@ function Profile({ auth }) {
           }).map(info => {
             return (
               <>
-                <CardProfile song={info} name={auth.user._id} admin={auth.user.admin}/>
+                <CardProfile song={info} name={auth.user._id} admin={auth.user.admin} />
               </>
             )
           })}
