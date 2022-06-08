@@ -20,15 +20,17 @@ function Menu({ logout, auth, setTheme }) {
                 <div className="flex justify-around">
                     <span className="font-bold text-2xl text-purple-600 self-center">Dr. Song<span className='text-xs text-purple-300 dark:text-gray-100'> BETA</span> </span>
                     <div className='flex gap-4 self-center'>
-                        <Link to='/home' className='text-purple-600 dark:text-white font-bold'>
+                        <Link to='/home' className='text-purple-600 dark:text-white font-bold flex gap-2 hover:text-purple-700 dark:hover:text-purple-700'>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 self-center" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                             </svg>
+                            <span>Popular</span>
                         </Link>
-                        <Link to='/search' className='text-purple-600 dark:text-white font-bold'>
+                        <Link to='/search' className='text-purple-600 dark:text-white font-bold flex gap-2 hover:text-purple-700 dark:hover:text-purple-700'>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 self-center" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
                             </svg>
+                            <span>Músicas</span>
                         </Link>
                         {/* <Link to='/profile' className='text-purple-700 font-semibold'>Profile</Link> */}
                         {/* <Link to='/create' className='text-purple-700 font-semibold'>Create</Link> */}
@@ -47,9 +49,9 @@ function Menu({ logout, auth, setTheme }) {
                                 <div className={`absolute right-0 z-20 w-48 py-2 mt-2 bg-white dark:bg-zinc-900 rounded-md shadow-xl ${dropdown ? '' : 'hidden'} `} onMouseLeave={() => setDropdown(false)}>
                                     <Link to='/' onClick={() => { setDropdown(false) }} className="dark:text-white dark:hover:bg-zinc-600 px-4 py-3 text-sm  capitalize transition-colors duration-200 transform hover:bg-gray-100 flex gap-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 self-center" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                                         </svg>
-                                        <span >Página Inicial</span>
+                                        <span >Popular</span>
                                     </Link>
                                     <Link to='/create' onClick={() => { setDropdown(false) }} className="dark:text-white dark:hover:bg-zinc-600 px-4 py-3 text-sm  capitalize transition-colors duration-200 transform hover:bg-gray-100 flex gap-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 self-center dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
