@@ -124,7 +124,8 @@ function Popular({ auth }) {
                         }} >
                         {list && list.filter(val => {
                             const name = "Persona"
-                            if (val.author.toLowerCase().includes(name.toLowerCase())) {
+                            if (val.author.toLowerCase().includes(name.toLowerCase()) ||
+                            val.anime.toLowerCase().includes(name.toLowerCase())) {
                                 return val
                             }
                         }).map(info => {
