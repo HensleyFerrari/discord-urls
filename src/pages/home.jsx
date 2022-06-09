@@ -84,7 +84,7 @@ function Home({ auth, validateToken }) {
             ) {
               return val
             }
-          }).slice(0, 68).map(info => {
+          }).map(info => {
             return (
               <div key={info._id}> 
                 <Card song={info} name={auth.user._id} admin={auth.user.admin} setSearchTerm={setSearchTerm} />

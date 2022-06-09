@@ -2,6 +2,7 @@ import React from 'react'
 import { toast } from 'react-toastify'
 import axios from 'axios'
 import consts from '../../consts'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 import { connect } from 'react-redux'
 
@@ -21,12 +22,16 @@ function Card({ song, name, admin, auth, setSearchTerm }) {
 
     return (
         <div className='shadow-lg flex rounded-md dark:bg-purple-900 text-black dark:text-white overflow-hidden min-h-[207px]' data-aos="fade-up" >
-            <img src={image} alt="" className=' rounded-l-md max-w-[138px]' loading='lazy' />
+            {/* <img src={image} alt="" className=' rounded-l-md max-w-[138px]' loading='lazy' />
+            <div className='fixed w-20 h-20 ml-4 mt-7'>
+                <LazyLoadImage src={image} alt="..." width={138} height={207} className='rounded-3xl' />
+            </div> */}
+            <LazyLoadImage src={image} alt="..." width={138} height={207} />
             <div className='flex flex-col gap-2 w-full text-center'>
-                <span className='font-bold text-lg mt-2 pl-1 pr-2'>{nome}</span>
-                <span className='text-sm p-1' onClick={() => setSearchTerm(author)}>{author}</span>
-                <span className='text-sm p-1' onClick={() => setSearchTerm(anime)}>{anime}</span>
-                <span className='text-sm p-1 mt-auto' onClick={() => setSearchTerm(tag)}>{tag}</span>
+                <span className='font-bold text-md mt-2 pl-1 pr-2'>{nome.substring(0, 20)}{nome.length > 20 ? ' ...' : ''}</span>
+                <span className='text-sm p-1' onClick={() => setSearchTerm(author)}>{author.substring(0, 20)}{author.length > 20 ? ' ...' : ''}</span>
+                <span className='text-sm p-1' onClick={() => setSearchTerm(anime)}>{anime.substring(0, 20)}{anime.length > 20 ? ' ...' : ''}</span>
+                <span className='text-sm p-1' onClick={() => setSearchTerm(tag)}>{tag}</span>
                 <div className="flex mt-auto">
                     <span onClick={(e => {
                         navigator.clipboard.writeText(`;;p ${url}`)
