@@ -1,13 +1,11 @@
 import {combineReducers} from 'redux'
-//import {reducer as formReducer} from 'redux-form'
-// import {reducer as toastrReducer} from 'react-redux-toastr'
 
 import AuthReducer from './auth/authReducer'
+import SongReducer from './main/songs/songReducer'
 
 const rootReducer = combineReducers({
-    //form: formReducer,
-    //toastr: toastrReducer,
-    auth: AuthReducer
+    auth: AuthReducer,
+    info: SongReducer
 })
 
 export default rootReducer

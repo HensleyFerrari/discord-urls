@@ -56,7 +56,7 @@ function Popular({ auth }) {
                     <span className='font-bold text-3xl '>Top <span className='text-purple-700'>10</span> Populares</span>
                     <Splide
                         options={{
-                            perPage: 4,
+                            perPage: 3,
                             pagination: false,
                             drag: 'free',
                             gap: "2rem"
@@ -70,16 +70,16 @@ function Popular({ auth }) {
                             )
                         })}
                     </Splide>
-                    <span className='font-bold text-3xl '>Sawano Hiroyuki <span className='bg-green-600 text-sm px-1 rounded-md align-middle'>Novo</span></span>
+                    <span className='font-bold text-3xl '>Sawano Hiroyuki</span>
                     <Splide
                         options={{
-                            perPage: 4,
+                            perPage: 3,
                             pagination: false,
                             drag: 'free',
                             gap: "2rem"
                         }} >
                         {list && list.filter(val => {
-                            const name = "SawanoHiroyuki"
+                            const name = "Sawano"
                             if (val.author.toLowerCase().includes(name.toLowerCase())) {
                                 return val
                             }
@@ -92,10 +92,10 @@ function Popular({ auth }) {
                             )
                         })}
                     </Splide>
-                    <span className='font-bold text-3xl '>Official HiGE DANdism <span className='bg-green-600 text-sm px-1 rounded-md align-middle'>Novo</span></span>
+                    <span className='font-bold text-3xl '>Official HiGE DANdism</span>
                     <Splide
                         options={{
-                            perPage: 4,
+                            perPage: 3,
                             pagination: false,
                             drag: 'free',
                             gap: "2rem"
@@ -114,10 +114,10 @@ function Popular({ auth }) {
                             )
                         })}
                     </Splide>
-                    <span className='font-bold text-3xl '>Persona <span className='bg-green-600 text-sm px-1 rounded-md align-middle'>Novo</span></span>
+                    <span className='font-bold text-3xl '>Persona</span>
                     <Splide
                         options={{
-                            perPage: 4,
+                            perPage: 3,
                             pagination: false,
                             drag: 'free',
                             gap: "2rem"
@@ -137,10 +137,10 @@ function Popular({ auth }) {
                             )
                         })}
                     </Splide>
-                    <span className='font-bold text-3xl '>Boku no Hero Academia <span className='bg-green-600 text-sm px-1 rounded-md align-middle'>Novo</span></span>
+                    <span className='font-bold text-3xl '>Boku no Hero Academia</span>
                     <Splide
                         options={{
-                            perPage: 4,
+                            perPage: 3,
                             pagination: false,
                             drag: 'free',
                             gap: "2rem"
