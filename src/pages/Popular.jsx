@@ -7,6 +7,8 @@ import 'aos/dist/aos.css'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css'
 
+import Slide from '../common/slides/Slide'
+
 import { connect } from 'react-redux'
 
 import Card from '../common/card/Card';
@@ -21,26 +23,15 @@ function Popular({ auth }) {
     }, [])
 
     const getInfo = async () => {
-        const date = Date.now() / 1000
-        const checkDate = parseInt(localStorage.getItem('datePopular'))
-        const check = localStorage.getItem('popular')
-        const calc = date - checkDate
+        await axios.get(`${consts.API_URL}/info/popular`, {
+            headers: {
+                Authorization: auth.user.token,
+            }
+        }).then(resp => {
+            setInfo(resp.data)
+        })
 
-        if (check && calc < 180) {
-            setInfo(JSON.parse(check))
-        } else {
-            localStorage.setItem('datePopular', Date.now() / 1000)
-            axios.get(`${consts.API_URL}/info/popular`, {
-                headers: {
-                    Authorization: auth.user.token,
-                }
-            }).then(resp => {
-                setInfo(resp.data)
-                localStorage.setItem('popular', JSON.stringify(resp.data))
-            })
-        }
-
-        axios.get(`${consts.API_URL}/info`, {
+        await axios.get(`${consts.API_URL}/info`, {
             headers: {
                 Authorization: auth.user.token,
             }
@@ -70,98 +61,10 @@ function Popular({ auth }) {
                             )
                         })}
                     </Splide>
-                    <span className='font-bold text-3xl '>Sawano Hiroyuki</span>
-                    <Splide
-                        options={{
-                            perPage: 3,
-                            pagination: false,
-                            drag: 'free',
-                            gap: "2rem"
-                        }} >
-                        {list && list.filter(val => {
-                            const name = "Sawano"
-                            if (val.author.toLowerCase().includes(name.toLowerCase())) {
-                                return val
-                            }
-                        }).map(info => {
-                            return (
-                                <SplideSlide key={info._id}>
-                                    <span className='daerk:text-whit font-semibold'>{info.picked} reproduções</span>
-                                    <Card song={info} />
-                                </SplideSlide>
-                            )
-                        })}
-                    </Splide>
-                    <span className='font-bold text-3xl '>Official HiGE DANdism</span>
-                    <Splide
-                        options={{
-                            perPage: 3,
-                            pagination: false,
-                            drag: 'free',
-                            gap: "2rem"
-                        }} >
-                        {list && list.filter(val => {
-                            const name = "Official HiGE DANdism"
-                            if (val.author.toLowerCase().includes(name.toLowerCase())) {
-                                return val
-                            }
-                        }).map(info => {
-                            return (
-                                <SplideSlide key={info._id}>
-                                    <span className='daerk:text-whit font-semibold'>{info.picked} reproduções</span>
-                                    <Card song={info} />
-                                </SplideSlide>
-                            )
-                        })}
-                    </Splide>
-                    <span className='font-bold text-3xl '>Persona</span>
-                    <Splide
-                        options={{
-                            perPage: 3,
-                            pagination: false,
-                            drag: 'free',
-                            gap: "2rem"
-                        }} >
-                        {list && list.filter(val => {
-                            const name = "Persona"
-                            if (val.author.toLowerCase().includes(name.toLowerCase()) ||
-                            val.anime.toLowerCase().includes(name.toLowerCase())) {
-                                return val
-                            }
-                        }).map(info => {
-                            return (
-                                <SplideSlide key={info._id}>
-                                    <span className='daerk:text-whit font-semibold'>{info.picked} reproduções</span>
-                                    <Card song={info} />
-                                </SplideSlide>
-                            )
-                        })}
-                    </Splide>
-                    <span className='font-bold text-3xl '>Boku no Hero Academia</span>
-                    <Splide
-                        options={{
-                            perPage: 3,
-                            pagination: false,
-                            drag: 'free',
-                            gap: "2rem"
-                        }} >
-                        {list && list.filter(val => {
-                            const name = "Boku no Hero Academia"
-                            if (val.author.toLowerCase().includes(name.toLowerCase()) ||
-                            val.anime.toLowerCase().includes(name.toLowerCase())
-                            ) {
-                                return val
-                            }
-                        }).map(info => {
-                            return (
-                                <SplideSlide key={info._id}>
-                                    <span className='daerk:text-whit font-semibold'>{info.picked} reproduções</span>
-                                    <Card song={info} />
-                                </SplideSlide>
-                            )
-                        })}
-                    </Splide>
-
+                    <Slide list={list} name={'Sawano Hiroyuki'} filter={'Sawano'} />
+                    <Slide list={list} name={'Official HiGE DANdism'} filter={'Official HiGE DANdism'} />
+                    <Slide list={list} name={'Persona'} filter={'Persona'} />
+                    <Slide list={list} name={'LiSA'} filter={'lisa'} />
                 </div>
             </div>
         </div>

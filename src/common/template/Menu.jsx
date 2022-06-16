@@ -70,7 +70,7 @@ function Menu({ logout, auth, setTheme }) {
                                         <span >Admin Panel</span>
                                     </Link>}
                                     <ThemeButton setTheme={setTheme} setDropdown={setDropdown} />
-                                    <hr />
+                                    <hr className='border-gray-200 dark:border-gray-700' />
                                     <span className="px-4 py-3 text-sm text-red-500 hover:text-red-600 capitalize dark:hover:bg-zinc-600 transition-colors duration-200 transform hover:bg-gray-100 flex gap-1" onClick={() => {
                                         logout()
                                         setDropdown(false)

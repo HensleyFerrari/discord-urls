@@ -67,7 +67,7 @@ function Home({ auth, getInfo, info }) {
               <span className='font-semibold'>Aleatório</span>
             </button>
           </div>
-          <div className="flex flex-col sm:grid sm:grid-cols-2 md:grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-5 p-5 sm:p-0">
+          <div className="flex flex-col sm:grid sm:grid-cols-2 md:grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 p-5 sm:p-0">
             {info.filter(val => {
               if (searchTerm === "") {
                 return val
