@@ -51,18 +51,18 @@ function Menu({ logout, auth, setTheme }) {
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 self-center" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                                         </svg>
-                                        <span >Popular</span>
+                                        <span >Populares</span>
                                     </Link>
-                                    <Link to='/create' onClick={() => { setDropdown(false) }} className="dark:text-white dark:hover:bg-zinc-600 px-4 py-3 text-sm  capitalize transition-colors duration-200 transform hover:bg-gray-100 flex gap-1">
+                                    {auth.user.editor && <Link to='/create' onClick={() => { setDropdown(false) }} className="dark:text-white dark:hover:bg-zinc-600 px-4 py-3 text-sm  capitalize transition-colors duration-200 transform hover:bg-gray-100 flex gap-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 self-center dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
                                         </svg><span >Adicionar Música</span>
-                                    </Link>
-                                    <Link to='/profile' onClick={() => { setDropdown(false) }} className="dark:text-white dark:hover:bg-zinc-600 px-4 py-3 text-sm  capitalize transition-colors duration-200 transform hover:bg-gray-100 flex gap-1">
+                                    </Link>}
+                                    {auth.user.editor && <Link to='/profile' onClick={() => { setDropdown(false) }} className="dark:text-white dark:hover:bg-zinc-600 px-4 py-3 text-sm  capitalize transition-colors duration-200 transform hover:bg-gray-100 flex gap-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 self-center dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                         </svg><span >Perfil</span>
-                                    </Link>
+                                    </Link>}
                                     {auth.user.admin && <Link to='/admin/home' onClick={() => { setDropdown(false) }} className="dark:text-white dark:hover:bg-zinc-600 px-4 py-3 text-sm  capitalize transition-colors duration-200 transform hover:bg-gray-100 flex gap-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 self-center" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
