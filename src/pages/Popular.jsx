@@ -42,9 +42,9 @@ function Popular({ auth }) {
 
     return (
         <div className="dark:bg-zinc-800 min-h-[891px] dark:text-white">
-            <div className='container mx-auto pt-5'>
+            <div className='container mx-auto pt-5 pb-5'>
                 <div className="flex flex-col gap-5">
-                    <span className='font-bold text-3xl '>Top <span className='text-purple-700'>10</span> Populares</span>
+                    <span className='font-bold text-3xl ml-3'>Top <span className='text-purple-700'>10</span> Populares</span>
                     <Splide
                         options={{
                             perPage: 3,
@@ -55,7 +55,6 @@ function Popular({ auth }) {
                         {info && info.map(info => {
                             return (
                                 <SplideSlide key={info._id}>
-                                    <span className='daerk:text-whit font-semibold'>{info.picked} reproduções</span>
                                     <Card song={info} />
                                 </SplideSlide>
                             )

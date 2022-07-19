@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { HashRouter as Router } from "react-router-dom";
 
@@ -21,4 +21,4 @@ function App() {
   )
 }
 
-export default App;
+export default App

@@ -7,7 +7,7 @@ function Card({ song, name, admin }) {
     const { nome, author, anime, tag, image, url, createdBy, _id } = song
 
     return (
-        <div className='shadow-lg flex rounded-md bg-purple-600 text-white overflow-hidden min-h-[207px]' data-aos="fade-up" >
+        <div className='shadow-lg flex rounded-md dark:bg-purple-900 dark:text-white overflow-hidden min-h-[207px]' data-aos="fade-up" >
             <img src={image} alt="" className='bg-cover max-h-52 rounded-l-md max-w-[138px]' loading='lazy' />
             <div className='flex flex-col gap-2 w-full text-center'>
                 <span className='font-bold text-lg mt-2 pl-1 pr-2'>{nome}</span>

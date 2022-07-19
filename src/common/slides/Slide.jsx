@@ -8,7 +8,7 @@ import Card from '../card/Card';
 function Slide({ list, name, filter }) {
     return (
         <>
-            <span className='font-bold text-3xl '>{name}</span>
+            <span className='font-bold text-3xl ml-3'>{name}</span>
             <Splide
                 options={{
                     perPage: 3,
@@ -18,13 +18,14 @@ function Slide({ list, name, filter }) {
                 }} >
                 {list && list.filter(val => {
                     const name = filter
-                    if (val.author.toLowerCase().includes(name.toLowerCase())) {
+                    if (val.author.toLowerCase().includes(name.toLowerCase()) ||
+                        val.anime.toLowerCase().includes(name.toLowerCase())) {
                         return val
                     }
                 }).map(info => {
                     return (
                         <SplideSlide key={info._id}>
-                            <span className='daerk:text-whit font-semibold'>{info.picked} reproduções</span>
+                            {/* <span className='daerk:text-whit font-semibold'>{info.picked} reproduções</span> */}
                             <Card song={info} />
                         </SplideSlide>
                     )
