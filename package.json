@@ -1,6 +1,7 @@
 {
   "name": "discord-urls",
   "version": "0.1.0",
+  "homepage" : "drsong",
   "private": true,
   "dependencies": {
     "@splidejs/react-splide": "^0.7.5",
