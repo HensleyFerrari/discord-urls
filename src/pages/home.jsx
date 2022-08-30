@@ -43,7 +43,7 @@ function Home({ auth, getInfo, info }) {
 
   const copyRandom = () => {
     const random = getRandom()
-    navigator.clipboard.writeText(`;;p ${random.url}`)
+    navigator.clipboard.writeText(`/play ${random.url}`)
     toast.info(`${random.nome} de ${random.anime} foi copiado!`)
     updatePickedSong(random._id, random.picked)
   }

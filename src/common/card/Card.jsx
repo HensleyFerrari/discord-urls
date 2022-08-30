@@ -34,7 +34,7 @@ function Card({ song, name, admin, auth, setSearchTerm }) {
                 <span className='text-sm p-1' onClick={() => setSearchTerm(tag)}>{tag}</span>
                 <div className="flex mt-auto">
                     <span onClick={(e => {
-                        navigator.clipboard.writeText(`;;p ${url}`)
+                        navigator.clipboard.writeText(`/play ${url}`)
                         updatePickedSong()
                         toast.info(`${nome} de ${anime} foi copiado!`)
                     })} className='cursor-pointer px-4 py-2 font-semibold w-full text-white gap-2 bg-zinc-700 self-center flex flex-row justify-center hover:bg-zinc-600'>
